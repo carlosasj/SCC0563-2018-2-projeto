@@ -1,5 +1,11 @@
 # Curricula
 
+9167910 - Carlos Alberto Schneider Junior
+
+Repository: https://github.com/carlosasj/SCC0563-2018-2-projeto
+
+Live demo: https://carlosasj.github.io/SCC0563-2018-2-projeto/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
 
 ## Development server
