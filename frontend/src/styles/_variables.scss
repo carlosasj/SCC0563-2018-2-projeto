@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/functions";
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -158,7 +159,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   $gray-200 !default;
 $body-color:                $gray-900 !default;
 
 // Links

@@ -1,8 +1,11 @@
 <main class="container container-fluid">
   <h1 class="text-center mt-5 mb-5">Find your next employee</h1>
   <form>
-    <div class="form-group">
-      <input type="email" class="form-control form-control-lg text-center" id="exampleInputEmail1" aria-describedby="emailHelp" [placeholder]="placeholder">
+    <div class="input-group mb-2">
+      <input type="text" class="form-control form-control-lg text-center" [placeholder]="placeholder">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary">Go!</button>
+      </div>
     </div>
   </form>
 </main>
