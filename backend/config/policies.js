@@ -8,7 +8,7 @@
  * https://sailsjs.com/docs/concepts/policies
  */
 
-export const policies = {
+module.exports.policies = {
 
   /***************************************************************************
   *                                                                          *
@@ -17,6 +17,10 @@ export const policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
+  HealthcheckController: {
+    index: true,
+    protected: ['checkToken']
+  }
 
 };

@@ -16,6 +16,7 @@ import { MyCurriculumModule } from './my-curriculum/my-curriculum.module';
 import { MyCurriculumEditModule } from './my-curriculum-edit/my-curriculum-edit.module';
 import { FormlyHorizontalWrapper } from './fragments/horizontal-wrapper.formly';
 import { RepeatTypeComponent } from './fragments/repeat-section.formly';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RepeatTypeComponent } from './fragments/repeat-section.formly';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
     FormlyModule.forRoot({
@@ -51,7 +53,7 @@ import { RepeatTypeComponent } from './fragments/repeat-section.formly';
 export class AppModule {
   constructor(public appRef: ApplicationRef) { }
   hmrOnInit(store) {
-    if (!store || !store.state) return;
+    if (!store || !store.state) { return; }
     console.log('HMR store', store);
     console.log('store.state.data:', store.state.data)
     // inject AppStore here and update it

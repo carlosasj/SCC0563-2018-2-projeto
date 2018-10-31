@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/sockets
  */
 
-export const sockets = {
+module.exports.sockets = {
 
   /***************************************************************************
   *                                                                          *

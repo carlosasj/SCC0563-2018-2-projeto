@@ -64,11 +64,11 @@ export class MyCurriculumEditComponent implements OnInit {
     },
 
     {
-      key: 'github',
+      key: 'linkedin',
       type: 'input',
       wrappers: ['form-field-horizontal'],
       templateOptions: {
-        label: 'Github',
+        label: 'LinkedIn',
       }
     },
     {

@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/globals
  */
 
-export const globals = {
+module.exports.globals = {
 
   /****************************************************************************
   *                                                                           *

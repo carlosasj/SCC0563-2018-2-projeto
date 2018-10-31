@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -22,10 +23,12 @@ const routes: Routes = [
   {
     path: 'my-curriculum',
     component: MyCurriculumComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'edit/my-curriculum',
     component: MyCurriculumEditComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

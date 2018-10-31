@@ -15,7 +15,7 @@ a [Sails v1](https://sailsjs.com) application
 
 ### Version info
 
-This app was originally generated on Sat Oct 27 2018 18:47:05 GMT-0300 (Brasilia Standard Time) using Sails v1.0.2.
+This app was originally generated on Mon Oct 29 2018 21:05:11 GMT-0300 (Brasilia Standard Time) using Sails v1.0.2.
 
 <!-- Internally, Sails used [`sails-generate@1.15.28`](https://github.com/balderdashy/sails-generate/tree/v1.15.28/lib/core-generators/new). -->
 

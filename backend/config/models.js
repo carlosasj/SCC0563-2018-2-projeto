@@ -13,7 +13,7 @@
  * https://sailsjs.com/docs/concepts/models-and-orm/model-settings
  */
 
-export const models = {
+module.exports.models = {
 
 
   /***************************************************************************
@@ -53,7 +53,7 @@ export const models = {
   *                                                                          *
   ***************************************************************************/
 
-  // migrate: 'alter',
+  migrate: 'drop',
 
 
   /***************************************************************************
@@ -101,7 +101,7 @@ export const models = {
   ******************************************************************************/
 
   dataEncryptionKeys: {
-    default: 'rvrXIORjjOshlNP3MCWDlJUXHVhhByKdpvIz+mro9kU='
+    default: 'YDDCVlO3QseBsD/t5+m216kCNkBu1gUgl0CtBKyokb8='
   },
 
 

@@ -13,7 +13,7 @@
  * https://sailsjs.com/config/security
  */
 
-export const security = {
+module.exports.security = {
 
   /***************************************************************************
   *                                                                          *
@@ -28,11 +28,11 @@ export const security = {
   *                                                                          *
   ***************************************************************************/
 
-  // cors: {
-  //   allRoutes: false,
-  //   allowOrigins: '*',
-  //   allowCredentials: false,
-  // },
+  cors: {
+    allRoutes: true,
+    allowOrigins: '*',
+    // allowCredentials: true,
+  },
 
 
   /****************************************************************************

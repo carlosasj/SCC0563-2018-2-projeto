@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/session
  */
 
-export const session = {
+module.exports.session = {
 
   /***************************************************************************
   *                                                                          *
@@ -18,7 +18,7 @@ export const session = {
   * of your users, forcing them to log in again.                             *
   *                                                                          *
   ***************************************************************************/
-  secret: 'abd090bd7691d81ace0b87c963f055c0',
+  secret: '349d0fa0b91db3257da61a96232393b3',
 
 
   /***************************************************************************

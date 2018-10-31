@@ -14,7 +14,7 @@
  * https://sailsjs.com/docs/concepts/views
  */
 
-export const views = {
+module.exports.views = {
 
   /***************************************************************************
   *                                                                          *

@@ -13,7 +13,7 @@
  * https://sailsjs.com/config/datastores
  */
 
-export const datastores = {
+module.exports.datastores = {
 
 
   /***************************************************************************
