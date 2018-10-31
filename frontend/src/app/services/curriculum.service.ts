@@ -1,42 +1,24 @@
-import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { CredentialsResponse } from '@models/credentials';
 import { environment } from '@environment';
 import { HttpClient } from '@angular/common/http';
+import { Curriculum } from '@models/curriculum';
 
 @Injectable({
     providedIn: 'root',
 })
-export class AuthService {
-    readonly credentials: BehaviorSubject<CredentialsResponse>;
-
+export class CurriculumService {
     constructor(
         private readonly http: HttpClient,
-        private readonly router: Router,
-    ) {
-        const entry = localStorage.getItem('auth:user');
-        if (entry) {
-            const entryObj: CredentialsResponse = JSON.parse(entry);
-            this.credentials = new BehaviorSubject(entryObj);
-        } else {
-            this.credentials = new BehaviorSubject(null);
-        }
+        private readonly authService: AuthService,
+    ) {}
+
+    mine() {
+        return this.http.get<Curriculum>(environment.baseUrlBack + '/curriculum/mine', { headers: this.authService.getHeaders()});
     }
 
-    login(data: {user: string, password: string}) {
-        return this.http.post<CredentialsResponse>(environment.baseUrlBack + '/login/login', data).pipe(
-            tap(result => {
-                localStorage.setItem('auth:user', JSON.stringify(result));
-                this.credentials.next(result);
-            })
-        );
-    }
-
-    logout() {
-        localStorage.removeItem('auth:user');
-        this.credentials.next(null);
-        this.router.navigate(['/']);
+    save(curriculum: Curriculum) {
+        return this.http.post<Curriculum>(
+            environment.baseUrlBack + '/curriculum/mine', curriculum, {headers: this.authService.getHeaders()});
     }
 }

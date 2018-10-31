@@ -1,5 +1,9 @@
+import { ActivatedRoute } from '@angular/router';
+import { Curriculum } from '@models/curriculum';
+import { CurriculumService } from './../services/curriculum.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 @Component({
@@ -8,8 +12,10 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
   styleUrls: ['./my-curriculum-edit.component.scss']
 })
 export class MyCurriculumEditComponent implements OnInit {
+  public success = '';
+  public error = '';
   public form = new FormGroup({});
-  public model = {};
+  public model: Curriculum = {};
   public options: FormlyFormOptions = {};
   public fields: FormlyFieldConfig[] = [
     {
@@ -293,14 +299,27 @@ export class MyCurriculumEditComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(
+    private readonly curriculumService: CurriculumService,
+    private readonly route: ActivatedRoute,
+  ) {
+    this.model = route.snapshot.data.curriculum || {};
+  }
 
   ngOnInit() {
   }
 
   submit() {
     if (this.form.valid) {
-      console.log(this.model);
+      this.curriculumService.save(this.model).pipe(
+        finalize(() => window.scrollTo(0, 0))
+      ).subscribe(
+        (res) => {
+          this.model = res;
+          this.success = 'Curriculum updated';
+        },
+        (res) => this.error = 'Some error occurred: ' + res.error
+      );
     }
   }
 }

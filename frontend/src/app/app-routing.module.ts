@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
 import { MyCurriculumComponent } from './my-curriculum/my-curriculum.component';
 import { MyCurriculumEditComponent } from './my-curriculum-edit/my-curriculum-edit.component';
+import { CurriculumResolver } from './resolvers/curriculum.resolver';
 
 const routes: Routes = [
   {
@@ -24,11 +25,17 @@ const routes: Routes = [
     path: 'my-curriculum',
     component: MyCurriculumComponent,
     canActivate: [AuthGuard],
+    resolve: {
+      curriculum: CurriculumResolver,
+    }
   },
   {
     path: 'edit/my-curriculum',
     component: MyCurriculumEditComponent,
     canActivate: [AuthGuard],
+    resolve: {
+      curriculum: CurriculumResolver,
+    }
   },
 ];
 

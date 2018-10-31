@@ -30,6 +30,7 @@ module.exports.bootstrap = async function(done) {
   const usersToCreate = [
     { email: 'carlosasj@hotmail.com.br', password: 'qwertyuiop', isAdmin: true },
     { email: 'qwe123@qwe123.com.br', password: 'qwe123', isAdmin: false },
+    { email: '2@2.2', password: '2', isAdmin: true },
   ];
 
   await Promise.all(usersToCreate.map(async (user) => {

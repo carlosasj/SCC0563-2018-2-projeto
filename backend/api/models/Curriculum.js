@@ -12,7 +12,7 @@ module.exports = {
     // Basics
     name: { type: 'string' },
     headline: { type: 'string' },
-    image: { type: 'string' },
+    // image: { type: 'string' },
     phone: { type: 'string' },
     email: { type: 'string' },
     github: { type: 'string' },
@@ -60,6 +60,10 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+    owner: {
+      model: 'user',
+    }
 
   },
 

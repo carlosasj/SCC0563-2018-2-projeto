@@ -1,15 +1,16 @@
 <main class="container container-fluid">
-  <div class="row">
+  <div class="row" *ngIf="curriculum; else empty">
     <div class="col-12">
       <img src="./assets/profilepicture.png" class="mt-5 img-thumbnail rounded-circle profile-picture">
-      <h1 class="h1 text-center">Jhon Doe</h1>
-      <h3 class="h3 text-center text-muted">Web developer</h3>
+      <h1 class="h1 text-center">{{curriculum.name}}</h1>
+      <h3 class="h3 text-center text-muted">{{curriculum.headline}}</h3>
     </div>
     <div class="col-12 mb-4">
       <h2>About</h2>
-      <p class="my-0"><strong>Phone: </strong>(16) 998 887 779</p>
-      <p class="my-0"><strong>E-mail: </strong>jhon.doe@example.com</p>
-      <p class="my-0"><strong>Github: </strong><a href="https://github.com/jhondoe">github.com/jhondoe</a></p>
+      <p class="my-0"><strong>Phone: </strong>{{curriculum.phone}}</p>
+      <p class="my-0"><strong>E-mail: </strong>{{curriculum.email}}</p>
+      <p class="my-0" *ngIf="curriculum.github"><strong>Github: </strong><a href="{{curriculum.github}}">{{curriculum.github}}</a></p>
+      <p class="my-0" *ngIf="curriculum.linkedin"><strong>LinkedIn: </strong><a href="{{curriculum.linkedin}}">{{curriculum.linkedin}}</a></p>
     </div>
     <div class="col-12 mb-4">
       <h2>Academic</h2>
@@ -75,4 +76,12 @@
       </div>
     </div>
   </div>
+  <ng-template #empty>
+    <div class="row">
+      <div class="col-12 mb-4 mt-3">
+        <h2>Looks like you don't have a curriculum yet</h2>
+        <a routerLink="/edit/my-curriculum">Click here to create yours</a>
+      </div>
+    </div>
+  </ng-template>
 </main>

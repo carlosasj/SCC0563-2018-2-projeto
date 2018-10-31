@@ -13,7 +13,7 @@ module.exports = async function (req, res, next) {
 
     try {
         const decoded = await jwt.verify(token);
-        req.user = decoded;
+        req.user = decoded.data;
         next()
     } catch (err) {
         console.log(err);

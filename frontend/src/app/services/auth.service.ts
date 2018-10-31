@@ -39,4 +39,14 @@ export class AuthService {
         this.credentials.next(null);
         this.router.navigate(['/']);
     }
+
+    getHeaders() {
+        if (this.credentials.getValue()) {
+            return {
+                'Authorization': this.credentials.getValue().token,
+            };
+        } else {
+            return undefined;
+        }
+    }
 }

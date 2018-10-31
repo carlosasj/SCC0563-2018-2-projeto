@@ -27,7 +27,9 @@ module.exports.routes = {
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
-  'GET /': 'HealthcheckController.index'
+  'GET /': 'HealthcheckController.index',
+  'GET /api/curriculum/mine': 'CurriculumController.mineGet',
+  'POST /api/curriculum/mine': 'CurriculumController.minePost',
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

@@ -17,10 +17,15 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': true,
+  CurriculumController: {
+    mineGet: ['checkToken'],
+    minePost: ['checkToken'],
+  },
   HealthcheckController: {
     index: true,
     protected: ['checkToken']
-  }
+  },
+  '*': true,
+
 
 };
