@@ -81,7 +81,7 @@ export class MyCurriculumEditComponent implements OnInit {
       template: '<h2 class="mt-4">Academic</div>',
     },
     {
-      key: 'academic',
+      key: 'education',
       type: 'repeat',
       fieldArray: {
         fieldGroupClassName: 'row mb-3',

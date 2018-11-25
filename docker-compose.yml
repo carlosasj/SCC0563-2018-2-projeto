@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_PASSWORD: dummyPassword
+      POSTGRES_USER: dummyUser
+      POSTGRES_DB: curricula
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+
+  sails:
+    build: ./backend
+    environment:
+      DB_HOST: db
+      DB_PORT: '5432'
+      DB_PASSWORD: dummyPassword
+      DB_USER: dummyUser
+      DB_DB: curricula
+    depends_on:
+      - db
+    ports:
+      - '1337:1337'
+
+volumes:
+  pgdata:
+    driver: 'local'

@@ -1,0 +1,10 @@
+.tmp
+node_modules
+.dockerignore
+.editorconfig
+.eslintignore
+.eslinttc
+.gitignore
+.sailsrc
+Dockerfile
+README.md

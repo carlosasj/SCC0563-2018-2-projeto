@@ -32,6 +32,10 @@ module.exports = {
     // FK volunteer
 
     // FK education
+    education: {
+      collection: 'education',
+      via: 'curriculum'
+    },
 
     // FK awards
 

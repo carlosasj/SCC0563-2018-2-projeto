@@ -13,6 +13,12 @@
  * https://sailsjs.com/config/datastores
  */
 
+const DBHost = process.env.DB_HOST || '127.0.0.1';
+const DBPort = process.env.DB_PORT || '5432';
+const DBPassword = process.env.DB_PASSWORD || 'dummyPassword';
+const DBUser = process.env.DB_USER || 'dummyUser';
+const DBDatabase = process.env.DB_DB || 'curricula';
+
 module.exports.datastores = {
 
 
@@ -48,8 +54,8 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    // adapter: 'sails-mysql',
-    // url: 'mysql://user:password@host:port/database',
+    adapter: 'sails-postgresql',
+    url: `postgresql://${DBUser}:${DBPassword}@${DBHost}:${DBPort}/${DBDatabase}`,
 
   },
 

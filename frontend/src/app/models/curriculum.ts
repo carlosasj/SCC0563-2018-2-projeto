@@ -1,8 +1,7 @@
+import { BaseModel } from './base-model';
+import { Education } from './education';
 
-export interface Curriculum {
-    createdAt?: number;
-    updatedAt?: number;
-    id?: number;
+export interface Curriculum extends BaseModel {
     owner?: number;
 
     name?: string;
@@ -12,4 +11,6 @@ export interface Curriculum {
     email?: string;
     github?: string;
     linkedin?: string;
+
+    education?: Education[];
 }

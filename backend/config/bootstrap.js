@@ -34,7 +34,7 @@ module.exports.bootstrap = async function(done) {
   ];
 
   await Promise.all(usersToCreate.map(async (user) => {
-    const userInstance = await User.create(user).fetch();
+    const userInstance = await User.findOrCreate({ email: user.email }, user);
     await User.setPassword(userInstance.email, user.password);
   }));
 
