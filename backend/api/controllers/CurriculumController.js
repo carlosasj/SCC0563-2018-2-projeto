@@ -35,13 +35,30 @@ async function applyRemoveEditOrCreateOperations(Model, operationsObj) {
 
 const fks = [
   { key: 'education', model: Education },
+  { key: 'work', model: Work },
+  { key: 'publications', model: Publication },
+  { key: 'skillsGroups', model: SkillsGroup },
 ];
 
 function findOnePopulateAll(criteria) {
-  let query = Curriculum.findOne(criteria);
+  return functionPopulateAll('findOne', criteria);
+}
+
+function streamPopulateAll(criteria) {
+  return functionPopulateAll('stream', criteria);
+}
+
+function findPopulateAll(criteria) {
+  return functionPopulateAll('find', criteria);
+}
+
+function functionPopulateAll(fnName, criteria) {
+  let query = Curriculum[fnName](criteria);
   fks.forEach(fk => query = query.populate(fk.key));
   return query;
 }
+
+function flat(acc, curr) { return acc.concat(curr);}
 
 module.exports = {
   mineGet: async (req, res) => {
@@ -77,6 +94,31 @@ module.exports = {
     curriculum = await findOnePopulateAll({ owner: req.user.id });
 
     return res.json(curriculum);
-  }
+  },
+
+  search: async (req, res) => {
+    const query = req.body.query.toLowerCase().split(' ').filter(Boolean);
+    const results = [];
+
+    (await findPopulateAll()).forEach(async curr => {
+      const stringified = [
+        curr.name,
+        curr.headline,
+        curr.email,
+        curr.github,
+      ].concat(
+        curr.work.map(w => [w.place, w.role]).reduce(flat, []),
+        curr.education.map(e => [e.universityName, e.course]).reduce(flat, []),
+        curr.publications.map(p => p.title),
+        curr.skillsGroups.map(s => [s.sk1, s.sk2, s.sk3, s.sk4, s.sk5].filter(Boolean)).reduce(flat, []),
+      ).join(' ').toLowerCase();
+
+      if (query.every(q => stringified.includes(q))) {
+        results.push(curr);
+      }
+    });
+
+    return res.json({ results: results });
+  },
 
 };

@@ -21,4 +21,9 @@ export class CurriculumService {
         return this.http.post<Curriculum>(
             environment.baseUrlBack + '/curriculum/mine', curriculum, {headers: this.authService.getHeaders()});
     }
+
+    search(query: string) {
+        return this.http.post<{results: Curriculum[]}>(
+            environment.baseUrlBack + '/curriculum/search', { query }, { headers: this.authService.getHeaders() });
+    }
 }

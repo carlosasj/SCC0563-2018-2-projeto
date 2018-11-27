@@ -1,5 +1,8 @@
+import { Publication } from './publication';
 import { BaseModel } from './base-model';
 import { Education } from './education';
+import { Work } from './work';
+import { SkillsGroup } from './skills-group';
 
 export interface Curriculum extends BaseModel {
     owner?: number;
@@ -13,4 +16,7 @@ export interface Curriculum extends BaseModel {
     linkedin?: string;
 
     education?: Education[];
+    work?: Work[];
+    publications?: Publication[];
+    skillsGroups?: SkillsGroup[];
 }

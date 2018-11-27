@@ -27,11 +27,13 @@ module.exports = {
 
     // FK profiles
 
-    // FK work
+    work: {
+      collection: 'work',
+      via: 'curriculum'
+    },
 
-    // FK volunteer
+    // // FK volunteer
 
-    // FK education
     education: {
       collection: 'education',
       via: 'curriculum'
@@ -39,9 +41,15 @@ module.exports = {
 
     // FK awards
 
-    // FK publications
+    publications: {
+      collection: 'publication',
+      via: 'curriculum'
+    },
 
-    // FK skills
+    skillsGroups: {
+      collection: 'skillsGroup',
+      via: 'curriculum'
+    },
 
     // FK languages
 

@@ -113,7 +113,6 @@ export class MyCurriculumEditComponent implements OnInit {
             key: 'from',
             wrappers: ['form-field-horizontal'],
             templateOptions: {
-              type: 'date',
               label: 'From',
             },
           },
@@ -123,7 +122,6 @@ export class MyCurriculumEditComponent implements OnInit {
             key: 'until',
             wrappers: ['form-field-horizontal'],
             templateOptions: {
-              type: 'date',
               label: 'Until',
             },
           },
@@ -134,7 +132,7 @@ export class MyCurriculumEditComponent implements OnInit {
       template: '<h2 class="mt-4">Past Experiences</div>',
     },
     {
-      key: 'past',
+      key: 'work',
       type: 'repeat',
       fieldArray: {
         fieldGroupClassName: 'row mb-3',
@@ -166,7 +164,6 @@ export class MyCurriculumEditComponent implements OnInit {
             key: 'from',
             wrappers: ['form-field-horizontal'],
             templateOptions: {
-              type: 'date',
               label: 'From',
             },
           },
@@ -176,7 +173,6 @@ export class MyCurriculumEditComponent implements OnInit {
             key: 'until',
             wrappers: ['form-field-horizontal'],
             templateOptions: {
-              type: 'date',
               label: 'Until',
             },
           },
@@ -187,7 +183,7 @@ export class MyCurriculumEditComponent implements OnInit {
       template: '<h2 class="mt-4">Articles</div>',
     },
     {
-      key: 'articles',
+      key: 'publications',
       type: 'repeat',
       fieldArray: {
         fieldGroupClassName: 'row mb-3',
@@ -217,7 +213,6 @@ export class MyCurriculumEditComponent implements OnInit {
             type: 'input',
             key: 'date',
             templateOptions: {
-              type: 'date',
               label: 'Date',
             },
           },
@@ -303,7 +298,7 @@ export class MyCurriculumEditComponent implements OnInit {
     private readonly curriculumService: CurriculumService,
     private readonly route: ActivatedRoute,
   ) {
-    this.model = route.snapshot.data.curriculum || {};
+    this.model = this.route.snapshot.data.curriculum || {};
   }
 
   ngOnInit() {

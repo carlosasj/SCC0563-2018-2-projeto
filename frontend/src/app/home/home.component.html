@@ -1,8 +1,8 @@
 <main class="container container-fluid">
   <h1 class="text-center mt-5 mb-5">Find your next employee</h1>
-  <form>
+  <form (submit)="onSubmit(query)">
     <div class="input-group mb-2">
-      <input type="text" class="form-control form-control-lg text-center" [placeholder]="placeholder">
+      <input type="text" name="query" [(ngModel)]="query" class="form-control form-control-lg text-center" [placeholder]="placeholder">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary">Go!</button>
       </div>
