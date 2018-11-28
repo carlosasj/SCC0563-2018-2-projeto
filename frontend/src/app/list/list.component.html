@@ -19,13 +19,13 @@
           <div class="col-12 mb-3">Showing results for <strong>{{searched}}</strong></div>
 
           <div class="col-12 mb-3" *ngFor="let curriculum of results">
-            <div class="card">
+            <a class="card" routerLink="/curriculum/{{curriculum.owner.id}}" [class.faded]="curriculum.block">
               <div class="card-body">
                 <h5 class="card-title">{{curriculum.name}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{curriculum.headline}}</h6>
                 <p class="card-text">{{curriculum.email}}</p>
               </div>
-            </div>
+            </a>
           </div>
         </ng-template>
       </ng-container>

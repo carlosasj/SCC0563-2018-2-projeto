@@ -30,6 +30,9 @@ module.exports.routes = {
   'GET /': 'HealthcheckController.index',
   'GET /api/curriculum/mine': 'CurriculumController.mineGet',
   'POST /api/curriculum/mine': 'CurriculumController.minePost',
+  'get /api/curriculum/:id': 'CurriculumController.getById',
+  'get /api/curriculum/block': 'CurriculumController.block',
+  'get /api/user/setAdmin': 'UserController.setAdmin',
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

@@ -13,3 +13,11 @@
     flex-grow: 1;
     margin: 0 1rem;
 }
+
+.faded {
+    opacity: .6;
+
+    &:hover {
+        opacity: .9;
+    }
+}

@@ -7,7 +7,7 @@ import { Curriculum } from '@models/curriculum';
 @Injectable({
   providedIn: 'root'
 })
-export class CurriculumResolver implements Resolve<Curriculum> {
+export class CurriculumByIdResolver implements Resolve<Curriculum> {
   constructor(
     private readonly curriculumService: CurriculumService,
   ) {}
@@ -16,6 +16,6 @@ export class CurriculumResolver implements Resolve<Curriculum> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Curriculum> | Promise<Curriculum> | Curriculum {
-    return this.curriculumService.mine();
+    return this.curriculumService.getById(route.params.id);
   }
 }

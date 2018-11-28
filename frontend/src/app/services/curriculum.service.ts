@@ -26,4 +26,19 @@ export class CurriculumService {
         return this.http.post<{results: Curriculum[]}>(
             environment.baseUrlBack + '/curriculum/search', { query }, { headers: this.authService.getHeaders() });
     }
+
+    getById(id: number) {
+        return this.http.get<Curriculum>(
+            environment.baseUrlBack + `/curriculum/${id}`, { headers: this.authService.getHeaders() });
+    }
+
+    block(id: number, value: boolean) {
+        return this.http.post<Curriculum>(
+            environment.baseUrlBack + '/curriculum/block', { id, value }, { headers: this.authService.getHeaders() });
+    }
+
+    setAdmin(userid: number, value: boolean) {
+        return this.http.post<Curriculum>(
+            environment.baseUrlBack + '/user/setAdmin', { userid, value }, { headers: this.authService.getHeaders() });
+    }
 }

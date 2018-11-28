@@ -1,5 +1,20 @@
 <main class="container container-fluid">
   <div class="row" *ngIf="curriculum; else empty">
+    <div class="col" *ngIf="!mine && iAmAdmin">
+      <div ngbDropdown class="d-inline-block mt-3">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Options</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="block(false)" class="dropdown-item" *ngIf="curriculum.block; else notBlocked">Unblock Curriculum</button>
+          <ng-template #notBlocked>
+            <button (click)="block(true)" class="dropdown-item">Block Curriculum</button>
+          </ng-template>
+          <button (click)="setAdmin(false)" class="dropdown-item" *ngIf="curriculum.owner.isAdmin; else notAdmin">Demote Admin</button>
+          <ng-template #notAdmin>
+            <button (click)="setAdmin(true)" class="dropdown-item">Promote to Admin</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
     <div class="col-12">
       <img src="./assets/profilepicture.png" class="mt-5 img-thumbnail rounded-circle profile-picture">
       <h1 class="h1 text-center">{{curriculum.name}}</h1>

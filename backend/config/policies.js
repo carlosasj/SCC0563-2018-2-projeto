@@ -20,6 +20,12 @@ module.exports.policies = {
   CurriculumController: {
     mineGet: ['checkToken'],
     minePost: ['checkToken'],
+    search: ['checkToken'],
+    getById: ['checkToken'],
+    block: ['checkToken', 'checkAdmin'],
+  },
+  UserController: {
+    setAdmin: ['checkToken', 'checkAdmin'],
   },
   HealthcheckController: {
     index: true,

@@ -1,3 +1,4 @@
+import { CredentialsUserResponse } from './credentials';
 import { Publication } from './publication';
 import { BaseModel } from './base-model';
 import { Education } from './education';
@@ -5,7 +6,7 @@ import { Work } from './work';
 import { SkillsGroup } from './skills-group';
 
 export interface Curriculum extends BaseModel {
-    owner?: number;
+    owner?: CredentialsUserResponse;
 
     name?: string;
     headline?: string;
@@ -14,6 +15,7 @@ export interface Curriculum extends BaseModel {
     email?: string;
     github?: string;
     linkedin?: string;
+    block?: boolean;
 
     education?: Education[];
     work?: Work[];

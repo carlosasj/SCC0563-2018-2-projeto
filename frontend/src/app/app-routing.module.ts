@@ -1,3 +1,4 @@
+import { CurriculumByIdResolver } from './resolvers/curriculum-by-id.resolver';
 import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -20,6 +21,13 @@ const routes: Routes = [
   {
     path: 'list',
     component: ListComponent,
+  },
+  {
+    path: 'curriculum/:id',
+    component: MyCurriculumComponent,
+    resolve: {
+      curriculum: CurriculumByIdResolver,
+    }
   },
   {
     path: 'my-curriculum',

@@ -17,6 +17,7 @@ module.exports = {
     email: { type: 'string' },
     github: { type: 'string' },
     linkedin: { type: 'string' },
+    block: { type: 'boolean', defaultsTo: false },
 
     // Location
     // address: { type: 'string' },
@@ -25,14 +26,10 @@ module.exports = {
     // region: { type: 'string' },
     // countryCode: { type: 'string' },
 
-    // FK profiles
-
     work: {
       collection: 'work',
       via: 'curriculum'
     },
-
-    // // FK volunteer
 
     education: {
       collection: 'education',
@@ -54,8 +51,6 @@ module.exports = {
     // FK languages
 
     // FK interests
-
-    // FK references
 
     // FK projects
 

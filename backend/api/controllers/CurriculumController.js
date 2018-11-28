@@ -34,6 +34,8 @@ async function applyRemoveEditOrCreateOperations(Model, operationsObj) {
 }
 
 const fks = [
+  { key: 'owner', model: User }, // Deixar sempre no início
+
   { key: 'education', model: Education },
   { key: 'work', model: Work },
   { key: 'publications', model: Publication },
@@ -83,7 +85,7 @@ module.exports = {
 
     curriculum = await findOnePopulateAll({ owner: req.user.id });
 
-    await Promise.all(fks.map(async fk => {
+    await Promise.all(fks.slice(1).map(async fk => {
       const operationsObj = diffToRemoveEditOrCreate(curriculum[fk.key], req.body[fk.key]);
       const resultIds = await applyRemoveEditOrCreateOperations(fk.model, operationsObj);
       base[fk.key] = resultIds;
@@ -119,6 +121,25 @@ module.exports = {
     });
 
     return res.json({ results: results });
+  },
+
+  getById: async(req, res) => {
+    try {
+      const curriculum = await findOnePopulateAll({ owner: req.param('id') });
+      return res.json(curriculum);
+    } catch (err) {
+      return res.json(null);
+    }
+  },
+
+  block: async (req, res) => {
+    await Curriculum.update(req.body.id).set({block: req.body.value});
+    try {
+      const curriculum = await findOnePopulateAll({ id: req.body.id });
+      return res.json(curriculum);
+    } catch (err) {
+      return res.json(null);
+    }
   },
 
 };
