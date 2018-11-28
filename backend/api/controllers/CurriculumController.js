@@ -40,6 +40,7 @@ const fks = [
   { key: 'work', model: Work },
   { key: 'publications', model: Publication },
   { key: 'skillsGroups', model: SkillsGroup },
+  { key: 'languages', model: Language },
 ];
 
 function findOnePopulateAll(criteria) {
@@ -113,6 +114,7 @@ module.exports = {
         curr.education.map(e => [e.universityName, e.course]).reduce(flat, []),
         curr.publications.map(p => p.title),
         curr.skillsGroups.map(s => [s.sk1, s.sk2, s.sk3, s.sk4, s.sk5].filter(Boolean)).reduce(flat, []),
+        curr.languages.map(l => l.name),
       ).join(' ').toLowerCase();
 
       if (query.every(q => stringified.includes(q))) {

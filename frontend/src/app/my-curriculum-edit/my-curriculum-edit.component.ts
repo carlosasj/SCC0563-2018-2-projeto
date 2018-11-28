@@ -287,8 +287,46 @@ export class MyCurriculumEditComponent implements OnInit {
               label: 'Skill',
             },
           },
-
-
+        ]
+      }
+    },
+    {
+      template: '<h2 class="mt-4">Languages</div>',
+    },
+    {
+      key: 'languages',
+      type: 'repeat',
+      fieldArray: {
+        fieldGroupClassName: 'row mb-3',
+        templateOptions: {
+          btnText: 'Add another Language',
+        },
+        fieldGroup: [
+          {
+            className: 'col-sm-5',
+            type: 'input',
+            key: 'name',
+            templateOptions: {
+              label: 'Language',
+              required: true,
+            },
+          },
+          {
+            className: 'col-sm-5',
+            type: 'select',
+            key: 'proficiency',
+            templateOptions: {
+              label: 'Proficiency',
+              required: true,
+              options: [
+                { label: 'Elementary', value: 'Elementary' },
+                { label: 'Limited working', value: 'Limited working' },
+                { label: 'Professional working', value: 'Professional working' },
+                { label: 'Full professional', value: 'Full professional' },
+                { label: 'Native or bilingual', value: 'Native or bilingual' },
+              ],
+            },
+          },
         ]
       }
     },

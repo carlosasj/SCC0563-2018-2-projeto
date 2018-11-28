@@ -19,13 +19,6 @@ module.exports = {
     linkedin: { type: 'string' },
     block: { type: 'boolean', defaultsTo: false },
 
-    // Location
-    // address: { type: 'string' },
-    // postalCode: { type: 'string' },
-    // city: { type: 'string' },
-    // region: { type: 'string' },
-    // countryCode: { type: 'string' },
-
     work: {
       collection: 'work',
       via: 'curriculum'
@@ -35,8 +28,6 @@ module.exports = {
       collection: 'education',
       via: 'curriculum'
     },
-
-    // FK awards
 
     publications: {
       collection: 'publication',
@@ -48,11 +39,11 @@ module.exports = {
       via: 'curriculum'
     },
 
-    // FK languages
+    languages: {
+      collection: 'language',
+      via: 'curriculum'
+    },
 
-    // FK interests
-
-    // FK projects
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

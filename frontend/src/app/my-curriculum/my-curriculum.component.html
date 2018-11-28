@@ -64,6 +64,13 @@
         </div>
       </div>
     </div>
+    <div class="col-12 mb-4">
+      <h2>Languages</h2>
+      <ng-container *ngFor="let language of curriculum.languages">
+        <p class="my-0"><strong>{{language.name}}</strong></p>
+        <p>{{language.proficiency}}</p>
+      </ng-container>
+    </div>
   </div>
   <ng-template #empty>
     <div class="row">
